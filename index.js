@@ -8,7 +8,16 @@ const port=process.env.PORT||5000;
 // middleware
 app.use(cors());
 app.use(express.json());
-
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://heath-care-b77ac.web.app",
+      "https://heath-care-b77ac.firebaseapp.com",
+    ],
+    credentials: true,
+  })
+);
 app.get('/',(req,res)=>{
 res.send('health care is running')
 })
